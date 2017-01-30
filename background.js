@@ -1,12 +1,14 @@
-var key = "your API key here";
+var key = "AIzaSyBYZBqUvSaT4_KjfWjLZvJxJRVB2nAGgUc";
 
-function getCurrentTabUrl(callback){
-  var queryInfo={
-    active: true,
-    currentWindow: true
-  };
-  chrome.tabs.query(queryInfo, function(tabs){
-    callback(tabs[0].url);
+function getCurrentTabUrl(){
+  return new Promise(function(resolve, reject) {
+    var queryInfo = {
+      active: true,
+      currentWindow: true
+    };
+    chrome.tabs.query(queryInfo, function(tabs){
+      resolve(tabs[0].url);
+    });
   });
 }
 
@@ -34,11 +36,11 @@ function renderStatus(text){
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-  getCurrentTabUrl(function(url){
-    getShortURL(url).then(function (fulfilled){
+  getCurrentTabUrl().then(function (fulfilled){
+    getShortURL(fulfilled).then(function (fulfilled){
       console.log(fulfilled.id);
-      return renderStatus(fulfilled.id);
-    }, function(error){
+      renderStatus(fulfilled.id);
+    }, function (error){
       renderStatus("Check active tab URL");
     });
   });

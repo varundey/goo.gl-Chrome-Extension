@@ -9,7 +9,7 @@
     "default_icon": "icon.png",
     "default_popup": "index.html"
   },
-  "version": "1.1.1",
+  "version": "2.2.3",
   "author": "Varun Dey",
    "icons": {
       "16": "icons/icon16.png",

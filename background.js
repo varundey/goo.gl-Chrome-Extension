@@ -1,4 +1,4 @@
-var key = "AIzaSyBYZBqUvSaT4_KjfWjLZvJxJRVB2nAGgUc";
+var key = "your API key";
 
 function getCurrentTabUrl(){
   return new Promise(function(resolve, reject) {
@@ -26,6 +26,11 @@ function getShortURL(url){
       }
       else{
         resolve(response);
+        console.log(response.id, url);
+        var dic = {}
+        dic[url] = response.id
+        console.log(dic);
+        chrome.storage.local.set(dic)
       }
     }
   });

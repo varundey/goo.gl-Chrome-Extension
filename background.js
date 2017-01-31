@@ -12,6 +12,13 @@ function getCurrentTabUrl(){
   });
 }
 
+function store(url, response){
+  var dic = {}
+  dic[url] = response.id
+  console.log(dic);
+  chrome.storage.local.set(dic)
+}
+
 function getShortURL(url){
   return new Promise(function(resolve, reject) {
     var API_URL = 'https://www.googleapis.com/urlshortener/v1/url?fields=id&key=' + key;
@@ -27,10 +34,7 @@ function getShortURL(url){
       else{
         resolve(response);
         console.log(response.id, url);
-        var dic = {}
-        dic[url] = response.id
-        console.log(dic);
-        chrome.storage.local.set(dic)
+        store(url , response);
       }
     }
   });

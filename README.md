@@ -2,7 +2,7 @@
 URL Shortener Chrome Extension
 
 ## What?
-A one click Google URL Shortener for the current tab.
+A one click Google URL Shortener for the current tab. You can check your recently shortened URLs by clicking on to options.
 
 ## Why?
 I know there are many better URL shorteners but my first assignment at Symantec was to build any kind of Chrome Extension.
